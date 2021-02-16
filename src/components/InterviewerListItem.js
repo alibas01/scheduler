@@ -13,14 +13,13 @@ export default function ListItem(props) {
   
 
   return (
-    <li className={itemClass} onClick={() => props.setInterviewer(props.name)}>
+    <li className={itemClass} onClick={props.setInterviewer}>
       <img
       className={itemClass}
-      id={props.id}
       src={props.avatar}
       alt={props.name}
       />
-    {props.name}
+    {props.selected && props.name}
    </li>
   );
 }
