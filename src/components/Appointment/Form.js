@@ -4,18 +4,22 @@ import Button from "components/Button";
 
 export default function Form(props) {
   
-  const [interviewer, setInterviewer] = useState(interviewer);
-  const [name, setName] = useState("")
   const interviewers = props.interviewers;
-  const interviewer = props.interviewer;
+  const [interviewer, setInterviewer] = useState(props.interviewer || null);
+  const [name, setName] = useState(props.name || "")
 
-  const setInterviewer = interviewer => {
-    interviewer = interviewers[id]; 
-  }  
+  // const setInterviewer = interviewer => {
+  //   interviewer = interviewers[id]; 
+  // }  
 
-  const setName = name => {
-    props.name;
-   } 
+  // const setName = name => {
+  //   props.name;
+  // } 
+
+  const reset = function () {
+    setName("");
+    setInterviewer(null)
+  }
   
 
   return (
@@ -24,12 +28,13 @@ export default function Form(props) {
         <form autoComplete="off">
           <input
             className="appointment__create-input text--semi-bold"
-            name={props.name}
+            name="name"
             type="text"
-            placeholder={props.name && "Enter Student Name"}
+            placeholder= "Enter Student Name"
             /*
               This must be a controlled component
             */
+           {...name}
           />
         </form>
         <InterviewerList 
@@ -39,7 +44,12 @@ export default function Form(props) {
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button danger onClick={() => props.onCancel()}>Cancel</Button>
+          <Button danger 
+          onClick={() => {
+            props.onCancel();
+            reset();
+            }
+          }>Cancel</Button>
           <Button confirm onClick={() => props.onSave()}>Save</Button>
         </section>
       </section>
