@@ -127,14 +127,14 @@ storiesOf("InterviewerList", module)
   .add("Initial", () => (
     <InterviewerList
       interviewers={interviewers}
-      setInterviewer={action("setInterviewer")}
+      onChange={action("onChange")}
     />
   ))
   .add("Preselected", () => (
     <InterviewerList
       interviewers={interviewers}
-      interviewer={3}
-      setInterviewer={action("setInterviewer")}
+      value={3}
+      onChange={action("onChange")}
     />
   ));
 
@@ -181,7 +181,7 @@ storiesOf("Appointment", module)
     <Form 
     name = "Lydia Miller-Jones"
     interviewers = {interviewers}
-    interviewer = {2}
+    interviewer = {5}
     onSave = {action("onSave")}
     onCancel = {action("onCancel")}
     />)
