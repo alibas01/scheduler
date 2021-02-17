@@ -4,11 +4,11 @@ import "components/InterviewerList.scss"
 import InterviewerListItem from "components/InterviewerListItem";
 
 export default function InterviewerList(props) {
-  let itemClass = classnames({
-    "interviewers" :true,
-    "interviewers__header":props.id,
-    "interviewers__list" :props
-    })
+  // let itemClass = classnames({
+  //   "interviewers" :true,
+  //   "interviewers__header":props.interviewer,
+  //   "interviewers__list" :props.interviewers
+  //   })
   
   const interviewers = props.interviewers;
   
@@ -23,8 +23,8 @@ export default function InterviewerList(props) {
 
   return (
     <section className="interviewers">
-      <h4 className={itemClass}>Interviewer</h4>
-      <ul className={itemClass}>{listItems}</ul>
+      <h4 className="interviewers__header text--light">Interviewer</h4>
+      <ul className="interviewers__list">{listItems}</ul>
     </section>
   )
 }
