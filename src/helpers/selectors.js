@@ -12,3 +12,12 @@ export function getAppointmentsForDay(state, day) {
   }
   return result;
 }
+export function getInterview(state, interview) {
+  if (!interview) {
+    return null;
+  } else {
+    let interviewerID = interview.interviewer;
+    let designatedInterviewer = state.interviewers[interviewerID];
+    return {...interview, interviewer:designatedInterviewer};
+  }   
+}
