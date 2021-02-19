@@ -29,7 +29,17 @@ export default function Application(props) {
         }, []);
         
   let dailyInterviewers = getInterviewersForDay(state, state.day);
-  const bookInterview = (id, interview) => console.log(id, 'id', interview);
+  const bookInterview = function (id, interview) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+    };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+    setState({...state, appointments})
+  };
         
   dailyAppointments = getAppointmentsForDay(state, state.day);  
   const listItems = dailyAppointments.map(appointment => {
