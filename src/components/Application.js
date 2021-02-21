@@ -10,7 +10,6 @@ export default function Application(props) {
   const {
     state,
     setDay,
-    setDays,
     bookInterview,
     cancelInterview
   } = useApplicationData();
@@ -49,8 +48,8 @@ export default function Application(props) {
         <DayList 
         days={state.days} 
         day={state.day} 
-        setDay={setDay}
-        setDays={setDays} />
+        setDay={setDay} 
+        />
         </nav>
         <img
           className="sidebar__lhl sidebar--centered"

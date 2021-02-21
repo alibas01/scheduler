@@ -6,10 +6,11 @@ export default function DayListItem(props) {
   let itemClass = classnames({
   "day-list__item" :true,
   "day-list__item--selected":props.selected,
-  "day-list__item--full" :(props.spots === 0)
+  "day-list__item--full" :(props.spots <= 0)
   })
 
   const formatSpots = function (obj) {
+    
     let spotsRemaining = 
     obj.spots > 1 ? `${obj.spots} spots remaining` : 
     obj.spots === 1 ? "1 spot remaining" : 
