@@ -23,7 +23,7 @@ export default function Appointment (props) {
     props.interview ? SHOW : EMPTY
   );
   const add = () => transition(CREATE);
-
+  const defaultInterviewerForDay = props.defaultInterviewer && props.defaultInterviewer;
   function save(name, interviewer) {
     transition(SAVING);
     const interview = {
@@ -54,6 +54,7 @@ export default function Appointment (props) {
     onConfirm={() => deleteInt()} onCancel={() => back()} />} 
     {mode === CREATE && <Form 
     interviewers = {props.interviewers}
+    defaultInterviewerForDay = {defaultInterviewerForDay ? defaultInterviewerForDay : 1}
     onSave = {(name, interviewer) => save(name, interviewer)}
     onCancel = {() => back()}
     />}

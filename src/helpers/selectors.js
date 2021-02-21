@@ -35,3 +35,9 @@ export function getInterviewersForDay(state, day) {
   }
   return result;
 }
+
+export function defaultInterviewerForDay(state, day) {
+  let filteredDays = state.days.find(e => e.name === day);
+  const interviewersArr = filteredDays ? filteredDays.interviewers: [];
+  return interviewersArr[0];
+}
