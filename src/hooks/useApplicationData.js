@@ -1,5 +1,8 @@
 import { useReducer, useEffect } from "react";
 import axios from 'axios';
+import useRealTime from "./realTime";
+
+
 
 export default function useApplicationData() {
   const SET_DAY = "SET_DAY";
@@ -20,7 +23,7 @@ export default function useApplicationData() {
         }
       case SET_INTERVIEW: {
         return {...state, 
-          appointments: action.value,
+          appointments: action.appointments,
           days: action.days}
       }
       default:
@@ -36,9 +39,9 @@ export default function useApplicationData() {
     appointments: {},
     interviewers: {}
   });
-  
+
   const setDay = day => dispatch({ type: SET_DAY, value: day });
-  
+
   useEffect( () => {
     Promise.all([
       axios.get("/api/days"), 
@@ -50,8 +53,10 @@ export default function useApplicationData() {
           appointments: responses[1].data, 
           interviewers: responses[2].data 
         })
-      )
+      );
+    
   }, []);
+  useRealTime(dispatch, state)
 
   const bookInterview = function (id, interview) {
     const appointmentx = {
@@ -76,7 +81,7 @@ export default function useApplicationData() {
     const newDays = [...state.days];
     newDays[index] = {...newDays[index], spots: newSpot}
     return axios.put(`http://localhost:8001/api/appointments/${id}`,{interview}).then((error) => {
-      dispatch({ type: SET_INTERVIEW, value: appointments, days: newDays })
+      dispatch({ type: SET_INTERVIEW, appointments, days: newDays })
       // fix the bug! creating is fine. But after editing it still substract one. (FIXED L57-65)
     })
   };
@@ -97,12 +102,9 @@ export default function useApplicationData() {
     newDays[index] = {...newDays[index], spots: newSpot}
     return axios.delete(`http://localhost:8001/api/appointments/${id}`)
     .then((error) => {
-      dispatch({ type: SET_INTERVIEW, value: appointments, days: newDays })
+      dispatch({ type: SET_INTERVIEW, appointments, days: newDays })
     });
   }
-
-  
-  
 
   return { state, setDay, bookInterview, cancelInterview };
 }

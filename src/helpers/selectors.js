@@ -7,6 +7,7 @@ export function getAppointmentsForDay(state, day) {
   filteredDays = filteredDays[0];
   
   const appointmentArr = filteredDays ? filteredDays['appointments'] : [];
+  console.log('appointment arr', filteredDays)
   for (let app of appointmentArr) {
     result.push(state.appointments[app])
   }
@@ -36,8 +37,3 @@ export function getInterviewersForDay(state, day) {
   return result;
 }
 
-export function defaultInterviewerForDay(state, day) {
-  let filteredDays = state.days.find(e => e.name === day);
-  const interviewersArr = filteredDays ? filteredDays.interviewers: [];
-  return interviewersArr[0];
-}

@@ -1,6 +1,6 @@
 import React from "react";
 import Appointment from "components/Appointment/index";
-import { getAppointmentsForDay, getInterviewersForDay, getInterview, defaultInterviewerForDay } from "helpers/selectors";
+import { getAppointmentsForDay, getInterviewersForDay, getInterview } from "helpers/selectors";
 import useApplicationData from "hooks/useApplicationData"
 
 import "components/Application.scss";
@@ -18,8 +18,6 @@ export default function Application(props) {
   dailyAppointments = getAppointmentsForDay(state, state.day);
         
   const dailyInterviewers = getInterviewersForDay(state, state.day);
-  const defaultInterviewer = defaultInterviewerForDay(state, state.day);
-  console.log(defaultInterviewer)
   const listItems = dailyAppointments.map(appointment => {
     const interview = getInterview(state, appointment.interview);
     return (
@@ -29,7 +27,6 @@ export default function Application(props) {
     time={appointment.time} 
     interview={interview}
     interviewers={dailyInterviewers}
-    defaultInterviewer={defaultInterviewer}
     bookInterview={(id, interview) => bookInterview(id, interview)}
     cancelInterview={(id) => cancelInterview(id)}
     />);
