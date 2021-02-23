@@ -6,7 +6,6 @@ import { useEffect } from "react";
 export default function useRealTime(dispatch, state) {
 
   useEffect( () => {
-
     const ws = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL);
     ws.onopen = function open() {
       ws.send("ping");
@@ -35,9 +34,9 @@ export default function useRealTime(dispatch, state) {
           ...state.appointments,
           [data.id]: appointment
         };
-        console.log("state", state);
-        dispatch({ type: "SET_INTERVIEW", appointments: appointments, days:newDays })
+        return dispatch({ type: "SET_INTERVIEW", appointments: appointments, days:newDays });
       }
     }
+    return () => {ws.close()};
   }, [dispatch, state]);
 }

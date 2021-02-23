@@ -1,6 +1,6 @@
 import { useReducer, useEffect } from "react";
 import axios from 'axios';
-import useRealTime from "./realTime";
+import useRealTime from "./useRealTime";
 
 
 
@@ -22,6 +22,7 @@ export default function useApplicationData() {
           interviewers: action.interviewers 
         }
       case SET_INTERVIEW: {
+        //const days = func(action.days)
         return {...state, 
           appointments: action.appointments,
           days: action.days}
