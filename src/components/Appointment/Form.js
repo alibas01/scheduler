@@ -27,6 +27,7 @@ export default function Form(props) {
       setError('Please choose an interviewer');
       return;
     }
+    setError(null);
     props.onSave(name, interviewer)
   }
     
@@ -44,7 +45,7 @@ export default function Form(props) {
             data-testid="student-name-input"
           />
         </form>
-        <section className="appointment__validation" data-testid="error-input">{error}</section>
+        <section className="appointment__validation">{error}</section>
         <InterviewerList 
         interviewers={interviewers} 
         value={interviewer} 

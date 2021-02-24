@@ -21,7 +21,7 @@ export default function Application(props) {
   const listItems = dailyAppointments.map(appointment => {
     const interview = getInterview(state, appointment.interview);
     return (
-    <Appointment 
+    <Appointment
     key={appointment.id}
     id={appointment.id}
     time={appointment.time} 
