@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 
-
-
-
 export default function useRealTime(dispatch, state) {
+//this hook is created for web socket. Interviews and updating interviews are working fine. 
+//remaining spots calculation is not working. The client who demands the interview operation can see updated spots info
+// on his/her screen. Others can't. Because I commented out related lines. Since this activity is stretch and 
+//I already spent too much time, I will revisit this issue some other time.
 
   useEffect( () => {
     const ws = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL);
@@ -34,7 +35,7 @@ export default function useRealTime(dispatch, state) {
           ...state.appointments,
           [data.id]: appointment
         };
-        return dispatch({ type: "SET_INTERVIEW", appointments: appointments, days:newDays });
+        return dispatch({ type: "SET_INTERVIEW", appointments: appointments, days: newDays });
       }
     }
     return () => {ws.close()};

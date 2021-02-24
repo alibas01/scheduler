@@ -6,14 +6,6 @@ import Application from "components/Application";
 
 afterEach(cleanup);
 
-// it("defaults to Monday and changes the schedule when a new day is selected", () => {
-//   const { getByText } = render(<Application />);
-
-//   return waitForElement(() => getByText("Monday")).then(() => {
-//     fireEvent.click(getByText("Tuesday"));
-//     expect(getByText("Leopold Silvers")).toBeInTheDocument();
-//   });
-// });
 describe("Application", () => {
   it("changes the schedule when a new day is selected", async () => {
     const { getByText } = render(<Application />);
@@ -108,7 +100,9 @@ describe("Application", () => {
 
     fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
     fireEvent.click(getByText(appointment, "Save"));
+
     expect(getByText(appointment, "Saving!")).toBeInTheDocument();
+    
     await waitForElement(() => queryByText(appointment, "Error"))
     fireEvent.click(getByAltText(appointment, "Close"));
     await waitForElement(() => getByAltText(appointment, "Add"));

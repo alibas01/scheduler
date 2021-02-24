@@ -22,7 +22,6 @@ export default function useApplicationData() {
           interviewers: action.interviewers 
         }
       case SET_INTERVIEW: {
-        //const days = func(action.days)
         return {...state, 
           appointments: action.appointments,
           days: action.days}
@@ -57,7 +56,8 @@ export default function useApplicationData() {
       );
     
   }, []);
-  useRealTime(dispatch, state)
+
+  useRealTime(dispatch, state) //new custom hook for Web Socket Activity
 
   const bookInterview = function (id, interview) {
     const appointmentx = {
@@ -83,7 +83,6 @@ export default function useApplicationData() {
     newDays[index] = {...newDays[index], spots: newSpot}
     return axios.put(`http://localhost:8001/api/appointments/${id}`,{interview}).then((error) => {
       dispatch({ type: SET_INTERVIEW, appointments, days: newDays })
-      // fix the bug! creating is fine. But after editing it still substract one. (FIXED L57-65)
     })
   };
 

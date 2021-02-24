@@ -19,7 +19,7 @@ export default function ListItem(props) {
       src={props.avatar}
       alt={props.name}
       />
-    {props.selected && props.name}
+      {props.selected && props.name}
    </li>
   );
 }
