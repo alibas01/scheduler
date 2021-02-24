@@ -2,19 +2,25 @@
 <p align="center">
   <img src="https://github.com/alibas01/scheduler/blob/master/docs/interview-scheduler.png">
 </p>
-![logo](https://github.com/alibas01/scheduler/blob/master/docs/interview-scheduler.png)
+
 **Interview Scheduler** is a modular, single-page designed application built with *React.js* that allows students book interviews. Lots of features are available in Interview Scheduler including real-time updates, healthy back-end (database) communication, easy maintainability with testing features. 
 
 ## Product
-!["Screenshot of Root View"](https://github.com/alibas01/scheduler/blob/master/docs/rootview.png)
-!["Screenshot of Add Interview Form"](https://github.com/alibas01/scheduler/blob/master/docs/add-interview-form.png)
+
+<p align="center">
+  <img width="460" height="300" src="https://github.com/alibas01/scheduler/blob/master/docs/rootview.png">
+</p>
+<p align="center">
+  <img width="460" height="300" src="https://github.com/alibas01/scheduler/blob/master/docs/add-interview-form.png">
+</p>
+
 
 ## Setup
 
 Clone the project into your local station.
 Install all dependencies with `npm install`.
 
-# **Dependencies**
+# Dependencies
 
 - Node.js
 - react
