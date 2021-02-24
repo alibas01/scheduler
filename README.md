@@ -1,12 +1,13 @@
 # Interview Scheduler App
-(https://github.com/alibas01/scheduler/blob/master/docs/confirmation-box.png)
+<p align="center">
+  <img src="https://github.com/alibas01/scheduler/blob/master/docs/interview-scheduler.png">
+</p>
+![logo](https://github.com/alibas01/scheduler/blob/master/docs/interview-scheduler.png)
 **Interview Scheduler** is a modular, single-page designed application built with *React.js* that allows students book interviews. Lots of features are available in Interview Scheduler including real-time updates, healthy back-end (database) communication, easy maintainability with testing features. 
 
 ## Product
 !["Screenshot of Root View"](https://github.com/alibas01/scheduler/blob/master/docs/rootview.png)
 !["Screenshot of Add Interview Form"](https://github.com/alibas01/scheduler/blob/master/docs/add-interview-form.png)
-!["Screenshot of List of days view"](https://github.com/alibas01/scheduler/blob/master/docs/List-days-view.png)
-!["Screenshot of confirmation box"](https://github.com/alibas01/scheduler/blob/master/docs/confirmation-box.png)
 
 ## Setup
 
