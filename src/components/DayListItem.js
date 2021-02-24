@@ -16,7 +16,7 @@ export default function DayListItem(props) {
     obj.spots === 1 ? "1 spot remaining" : 
     "no spots remaining";
     return <h3 className="text--light">{`${spotsRemaining}`}</h3>
-  }
+  };
 
   return (
     <li 
@@ -29,5 +29,5 @@ export default function DayListItem(props) {
       {formatSpots(props)}
     </li>
   );
-}
+};
 

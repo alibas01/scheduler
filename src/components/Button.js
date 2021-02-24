@@ -8,7 +8,7 @@ export default function Button(props) {
      "button" :true,
    " button--confirm":props.confirm,
    " button--danger" :props.danger
-   })
+   });
 
   return ( 
     <button 
@@ -18,4 +18,4 @@ export default function Button(props) {
       {props.children}
     </button>
   );
-}
+};

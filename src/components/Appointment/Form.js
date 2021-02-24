@@ -6,13 +6,13 @@ export default function Form(props) {
   
   const interviewers = props.interviewers;
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
-  const [name, setName] = useState(props.name || "")
+  const [name, setName] = useState(props.name || "");
   const [error, setError] = useState(null);
 
   
   const reset = function () {
     setName("");
-    setInterviewer(null)
+    setInterviewer(null);
   }
   const cancel = function () {
     reset();
@@ -23,12 +23,12 @@ export default function Form(props) {
       setError('student name cannot be blank');
       return;
     }
-    if (!interviewer) {
+    if (!interviewer) { // this part is additional
       setError('Please choose an interviewer');
       return;
     }
     setError(null);
-    props.onSave(name, interviewer)
+    props.onSave(name, interviewer);
   }
     
   return (
@@ -58,5 +58,5 @@ export default function Form(props) {
         </section>
       </section>
     </main>
-  )
-}
+  );
+};

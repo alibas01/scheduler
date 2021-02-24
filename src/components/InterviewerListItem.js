@@ -8,9 +8,7 @@ export default function ListItem(props) {
   "interviewers__item--selected":props.selected,
   "interviewers__item-image" :props.avatar,
   "interviewers__item--selected-image" :(props.selected && props.avatar)
-  })
-
-  
+  });
 
   return (
     <li className={itemClass} onClick={props.setInterviewer}>
@@ -22,4 +20,4 @@ export default function ListItem(props) {
       {props.selected && props.name}
    </li>
   );
-}
+};

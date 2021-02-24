@@ -30,8 +30,8 @@ export default function useApplicationData() {
         throw new Error(
           `Tried to reduce with unsupported action type: ${action.type}`
         );
-    }
-  }
+    };
+  };
 
   const [state, dispatch] = useReducer(reducer, {
     day: "Monday",
@@ -57,18 +57,21 @@ export default function useApplicationData() {
     
   }, []);
 
-  useRealTime(dispatch, state) //new custom hook for Web Socket Activity
+  useRealTime(dispatch, state); //new custom hook for Web Socket Activity
 
   const bookInterview = function (id, interview) {
+    // Ln 64-74 and 85-86 is updating spots info when we book interview
     const appointmentx = {
       ...state.appointments[id]
     };
-    const dayID = Math.ceil(id / 5);
-    const index = dayID-1;
+    const dayID = Math.ceil(id / 5);//everyday has 5 interviews
+    const index = dayID-1;// index of that day in state.days
     let newSpot = state.days[index].spots;
-    if (!appointmentx.interview) {
+    //if current interview is null then we are adding a new one
+    //if current interview is not null then we are editing an existing one 
+    if (!appointmentx.interview) { 
     newSpot = state.days[index].spots - 1;
-    }
+    };
 
     const appointment = {
       ...state.appointments[id],
@@ -95,6 +98,8 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment
     };
+    // same mentality here as it was in the bookInterview
+    // but this time always spot info will increase one.
     const dayID = Math.ceil(id / 5);
     const index = dayID-1;
     const newSpot = state.days[index].spots + 1;
@@ -104,7 +109,7 @@ export default function useApplicationData() {
     .then((error) => {
       dispatch({ type: SET_INTERVIEW, appointments, days: newDays })
     });
-  }
+  };
 
   return { state, setDay, bookInterview, cancelInterview };
 }
