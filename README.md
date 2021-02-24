@@ -20,7 +20,7 @@
 Clone the project into your local station.
 Install all dependencies with `npm install`.
 
-# Dependencies
+### Dependencies
 
 - Node.js
 - react
@@ -42,14 +42,14 @@ From your project folder, please run
 ```sh
 npm start
 ```
-for **Webpack Development Server** and check your browser,
+for **_Webpack Development Server_** and check your browser,
 
 ```sh
 npm test
 ```
-for **Jest Test Framework** and follow your terminal screen, 
+for **_Jest Test Framework_** and follow your terminal screen, 
 
 ```sh
 npm run storybook
 ```
-for **Storybook Visual Testbed** and implement the instruction in your terminal screen.
+for **_Storybook Visual Testbed_** and implement the instruction on your terminal screen.
