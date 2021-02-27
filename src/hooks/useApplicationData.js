@@ -84,7 +84,7 @@ export default function useApplicationData() {
 
     const newDays = [...state.days];
     newDays[index] = {...newDays[index], spots: newSpot}
-    return axios.put(`http://localhost:8001/api/appointments/${id}`,{interview}).then((error) => {
+    return axios.put(`/api/appointments/${id}`,{interview}).then((error) => {
       dispatch({ type: SET_INTERVIEW, appointments, days: newDays })
     })
   };
@@ -105,7 +105,7 @@ export default function useApplicationData() {
     const newSpot = state.days[index].spots + 1;
     const newDays = [...state.days];
     newDays[index] = {...newDays[index], spots: newSpot}
-    return axios.delete(`http://localhost:8001/api/appointments/${id}`)
+    return axios.delete(`/api/appointments/${id}`)
     .then((error) => {
       dispatch({ type: SET_INTERVIEW, appointments, days: newDays })
     });
