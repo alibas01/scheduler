@@ -2,6 +2,7 @@ import React from "react";
 import Appointment from "components/Appointment/index";
 import { getAppointmentsForDay, getInterviewersForDay, getInterview } from "helpers/selectors";
 import useApplicationData from "hooks/useApplicationData"
+import Error from "components/Appointment/Error";
 
 import "components/Application.scss";
 import DayList from "./DayList";
@@ -55,7 +56,7 @@ export default function Application(props) {
         />
       </section>
       <section className="schedule">
-        {listItems} 
+        {listItems.length !==0 ? listItems : <Error message={'Backend(database) is sleeping. Please wake it up by refreshing the page! Give it a minute! Heroku will wake it up asap..'} onClose = {() => console.log('Wait, be patient please!')}/>} 
         <Appointment key="last" time="5pm" />
       </section>
     </main>
