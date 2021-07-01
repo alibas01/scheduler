@@ -2,8 +2,9 @@
 <p align="center">
   <img src="https://github.com/alibas01/scheduler/blob/master/docs/interview-scheduler.png">
 </p>
-** Deployed to: https://interview-scheduler-ali.netlify.app/ 
-** Interview Scheduler** is a modular, single-page designed application built with *React.js* that allows students book interviews. Lots of features are available in Interview Scheduler including real-time updates, healthy back-end (database) communication, easy maintainability with testing features. 
+
+### Deployed to: https://interview-scheduler-ali.netlify.app/ 
+## Interview Scheduler is a modular, single-page designed application built with *React.js* that allows students book interviews. Lots of features are available in Interview Scheduler including real-time updates, healthy back-end (database) communication, easy maintainability with testing features. 
 
 ## Product
 
